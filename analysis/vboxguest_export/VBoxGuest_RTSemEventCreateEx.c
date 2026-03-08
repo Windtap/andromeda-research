@@ -1,0 +1,18 @@
+__int64 __fastcall VBoxGuest_RTSemEventCreateEx(_QWORD *a1, int a2)
+{
+  _DWORD *v2; // rax
+  _DWORD *v3; // rbx
+
+  if ( (a2 & 0xFFFFFFFA) != 0 )
+    return 4294967294LL;
+  v2 = (_DWORD *)VBoxGuest_RTMemAllocTag(40);
+  v3 = v2;
+  if ( !v2 )
+    return 4294967288LL;
+  *v2 = 425726224;
+  v2[1] = 0;
+  v2[2] = 1;
+  _init_waitqueue_head(v2 + 4, "&pThis->Head", g_MpPendingOfflineSet);
+  *a1 = v3;
+  return 0;
+}

@@ -1,0 +1,4 @@
+void rtR0MemExecCleanup()
+{
+  ;
+}

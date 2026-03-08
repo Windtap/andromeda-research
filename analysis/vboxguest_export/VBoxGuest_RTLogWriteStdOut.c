@@ -1,0 +1,4 @@
+void VBoxGuest_RTLogWriteStdOut()
+{
+  ;
+}

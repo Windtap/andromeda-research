@@ -1,0 +1,17 @@
+# Ignore large binary images
+*.qcow2
+*.img
+*.iso
+*.bin
+
+# But ALLOW specific research artifacts
+!*.i64
+!*.ko
+!*.vbox
+
+# Ignore OS/Editor junk
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo

@@ -1,0 +1,21 @@
+__int64 __fastcall VBoxGuest_RTR0MemObjAllocPhysExTag(
+        unsigned __int64 a1,
+        unsigned __int64 a2,
+        unsigned __int64 a3,
+        __int64 a4)
+{
+  if ( a1 + 0x200000 <= 0x200FFF
+    || (a1 & 0xFF00000000000000LL) != 0 && (a1 & 0xFF00000000000000LL) != 0xFF00000000000000LL )
+  {
+    return 4294967290LL;
+  }
+  *(_QWORD *)a1 = 0;
+  if ( a2 && a2 <= ((a2 + 4095) & 0xFFFFFFFFFFFFF000LL) && a2 <= a3 )
+  {
+    if ( !a4 )
+      return rtR0MemObjNativeAllocPhys(a1, (a2 + 4095) & 0xFFFFFFFFFFFFF000LL, a3, 4096);
+    if ( a4 == 4096 || a4 == 0x200000 || a4 == 0x400000 || a4 == 0x40000000 )
+      return rtR0MemObjNativeAllocPhys(a1, (a2 + 4095) & 0xFFFFFFFFFFFFF000LL, a3, a4);
+  }
+  return 4294967294LL;
+}
